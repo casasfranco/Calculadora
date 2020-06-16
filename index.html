@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!--AGREGAR ETIQUETAS META-->
+
+</head>
+
+<body>
+    <div class="calculator card shadow">
+        <input type="text" class="calculator-screen z-depth-1" value="0" disabled="" id="panelSuperior">
+        <input type="text" class="calculator-screen z-depth-1" value="0" disabled="" id="panelInferior">
+
+        <div class="calculator-keys">
+
+            <button type="button" class="operator btn btn-info waves-effect waves-light" value="+" onclick="Write(this.value)">+</button>
+            <button type="button" class="operator btn btn-info waves-effect waves-light" value="-" onclick="Write(this.value)">-</button>
+            <button type="button" class="operator btn btn-info waves-effect waves-light" value="*" onclick="Write(this.value)">×</button>
+            <button type="button" class="operator btn btn-info waves-effect waves-light" value="/" onclick="Write(this.value)">÷</button>
+
+            <button type="button" value="7" class="btn btn-light waves-effect" onclick="Write(this.value)">7</button>
+            <button type="button" value="8" class="btn btn-light waves-effect" onclick="Write(this.value)">8</button>
+            <button type="button" value="9" class="btn btn-light waves-effect" onclick="Write(this.value)">9</button>
+
+
+            <button type="button" value="4" class="btn btn-light waves-effect" onclick="Write(this.value)">4</button>
+            <button type="button" value="5" class="btn btn-light waves-effect" onclick="Write(this.value)">5</button>
+            <button type="button" value="6" class="btn btn-light waves-effect" onclick="Write(this.value)">6</button>
+
+
+            <button type="button" value="1" class="btn btn-light waves-effect" onclick="Write(this.value)">1</button>
+            <button type="button" value="2" class="btn btn-light waves-effect" onclick="Write(this.value)">2</button>
+            <button type="button" value="3" class="btn btn-light waves-effect" onclick="Write(this.value)">3</button>
+
+
+            <button type="button" value="0" class="btn btn-light waves-effect" onclick="Write(this.value)">0</button>
+            <button type="button" class="btn btn-secondary waves-effect waves-light"
+                value=".">.</button>
+            <button type="button" class="btn btn-danger btn-sm waves-effect waves-light" onclick="Clear()">AC</button>
+
+            <button type="button" class="equal-sign btn btn-default waves-effect waves-light"
+                value="=" onclick="Calculate()">=</button>
+
+        </div>
+    </div>
+        
+</body>
+
+</html>
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/calculadora.js"></script>
+</body>
+
+</html>
