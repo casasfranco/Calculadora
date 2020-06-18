@@ -8,6 +8,8 @@
  * Cuando operador esta en valor 1, significa que fue presionado.
  *
  * Boton "C" esta siendo utilizado para retroceder un paso en caso de haber cometido un error de tipeo.
+ * 
+ * SOLUCIONAR AL APRETAR ENTER
  */
 
 let operador = 0; //Bandera para saber si se preciono un operador
@@ -101,11 +103,12 @@ function KeyDownPressed(code) {   //Funcion para detectar el delete ya que al pa
     let historial = document.getElementById("panelInferior").value;
     //console.log((document.getElementById("panelInferior").value).toString.charAt(0));
     
+    
     if (historial.length > 0) {
-      console.log(historial);
-      document.getElementById("panelInferior").value = historial;
-    } else {
-      console.log("Entre aqui");
+      console.log(" Historial " + historial);
+      var newValue = historial.substring(0,historial.length - 1);
+      console.log(newValue);
+      document.getElementById("panelInferior").value = newValue;
     }
   }
 }
@@ -114,6 +117,10 @@ function KeyDownPressed(code) {   //Funcion para detectar el delete ya que al pa
 function KeyPressed(code) {
   let valor = String.fromCharCode(code);
   console.log(valor);
+
+  if(valor == ',') {  //Transformo ',' en '.'
+      valor = '.';
+  }
 
   let historial = document.getElementById("panelInferior").value;
 
@@ -126,24 +133,27 @@ function KeyPressed(code) {
       console.log(`Por favor presione un numero antes`);
     } else {
       //No se preciono un operador aritmetico
-      antesDeOperador = valor;  //Guardo el valor ingresado
 
+      antesDeOperador = valor;  //Guardo el valor ingresado
       if (expDecimal.test(valor) || expInteger.test(valor)) {
-        console.log("Cumple con formato");
         document.getElementById("panelInferior").value = `${valor}`;
       } else {
         console.log("NO cumple con formato " + valor);
       }
-
-      
     }
+
+//Hasta aqui hago andar
+
+
+
+
+
+
+
+
+
+
   } else {
-
-    if(valor == "backspace"){
-      console.log("Se presiono delete");
-    } else {
-      console.log("asdas");
-    }
     //Hay valores previos en panel inferior
 
     operador = FindOperator(valor);
@@ -151,7 +161,7 @@ function KeyPressed(code) {
     if (operador == 1) {
       //Se preciono un operador
       if (bandera == 0) {
-        if (expDecimal.test(valor) || expInteger.test(valor)) {
+        if (expDecimal.test(valor) || expInteger.test(valor) || expDot.test(valor)) {
           console.log("Cumple con formato");
         } else {
           console.log("NO cumple con formato " + valor);
