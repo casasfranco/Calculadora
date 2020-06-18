@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body onkeypress="KeyPressed(event.keyCode);" onkeydown="KeyDownPressed(event.keyCode);">
     <div class="calculator card shadow">
         <input type="text" class="calculator-screen z-depth-1" value="0" disabled="" id="panelSuperior">
         <input type="text" class="calculator-screen z-depth-1" value="0" disabled="" id="panelInferior">
@@ -40,9 +40,9 @@
 
             <button type="button" value="0" class="btn btn-light waves-effect" onclick="Write(this.value)">0</button>
             <button type="button" class="btn btn-secondary waves-effect waves-light"
-                value=".">.</button>
+                value="." onclick="Write(this.value)">.</button>
+            <button type="button" class="btn btn-danger btn-sm waves-effect waves-light" onclick="ClearBottomScreen()">C</button>
             <button type="button" class="btn btn-danger btn-sm waves-effect waves-light" onclick="Clear()">AC</button>
-
             <button type="button" class="equal-sign btn btn-default waves-effect waves-light"
                 value="=" onclick="Calculate()">=</button>
 
